@@ -12,7 +12,7 @@
     }
 })();
 
-export function toggleTheme() {
+function toggleTheme() {
     const root = document.documentElement;
     const currentTheme = root.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -24,3 +24,4 @@ export function toggleTheme() {
         console.warn('LocalStorage unavailable for theme persistence');
     }
 }
+window.toggleTheme = toggleTheme;

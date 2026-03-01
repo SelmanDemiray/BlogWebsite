@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <base href="./">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About the Author | My Tech Blog</title>
     <meta name="description"
@@ -264,7 +265,7 @@
                     style="padding:0.25rem 0.75rem;border-radius:var(--radius-md);">Search</button>
                 <button id="theme-toggle" class="btn-outline"
                     style="padding:0.25rem 0.5rem;border-radius:var(--radius-md);"
-                    onclick="import('./assets/js/theme.js').then(m => m.toggleTheme())">🌓</button>
+                    onclick="toggleTheme()">🌓</button>
             </div>
         </div>
     </nav>

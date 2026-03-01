@@ -2,6 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
+    <base href="./">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloud Security & DevOps Architecture | My Tech Blog</title>
     <meta name="description" content="Master cloud security, DevOps engineering, and Azure architecture. Expert tutorials, real-world implementations, and actionable zero-trust strategies.">
@@ -135,7 +136,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <a href="./categories/cloud.html" class="nav-link">Cloud</a>
                 <a href="./categories/ai.html" class="nav-link">AI</a>
                 <button id="search-btn" class="btn-outline" style="padding:0.25rem 0.75rem;border-radius:var(--radius-md);">Search</button>
-                <button id="theme-toggle" class="btn-outline" aria-label="Toggle Theme" style="padding:0.25rem 0.5rem;border-radius:var(--radius-md);" onclick="import('./assets/js/theme.js').then(m => m.toggleTheme())">🌓</button>
+                <button id="theme-toggle" class="btn-outline" aria-label="Toggle Theme" style="padding:0.25rem 0.5rem;border-radius:var(--radius-md);" onclick="toggleTheme()">🌓</button>
             </div>
             <!-- Mobile Toggle -->
             <button id="mobile-menu-btn" style="display:none;background:transparent;border:none;color:white;font-size:1.5rem;" class="md:hidden">☰</button>
