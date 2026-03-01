@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <base href="../">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Engineering | My Tech Blog</title>
     <meta name="description"
@@ -13,7 +12,7 @@
     <meta property="og:url" content="https://yourdomain.com/categories/devops.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <script src="assets/js/theme.js"></script>
+    <script src="../assets/js/theme.js"></script>
     <script type="application/ld+json">
     { "@context": "https://schema.org", "@type": "CollectionPage", "name": "DevOps Category", "url": "https://yourdomain.com/categories/devops.html" }
     </script>
@@ -120,8 +119,10 @@
             color: transparent;
         }
     </style>
-    <link rel="stylesheet" href="assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../assets/css/animations.css" media="print" onload="this.media='all'">
+
+    <script>window.BLOG_ROOT = "../";</script>
 </head>
 
 <body>
@@ -158,8 +159,8 @@
         </div>
     </footer>
     <script type="module" defer>
-        import { initAnimations } from './assets/js/animations.js';
-        import { initNav } from './assets/js/nav.js'; import { renderCategory } from './assets/js/loader.js';
+        import { initAnimations } from '.././assets/js/animations.js';
+        import { initNav } from '.././assets/js/nav.js'; import { renderCategory } from '.././assets/js/loader.js';
         document.addEventListener('DOMContentLoaded', async () => {
             initNav();
             initAnimations(); renderCategory('devops');

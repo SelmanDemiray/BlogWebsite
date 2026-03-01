@@ -2,7 +2,7 @@
 // Injects a consistent navigation bar into every page from a single source of truth.
 
 export function initNav() {
-    const base = '';
+    const base = window.BLOG_ROOT || './';
 
     const navEl = document.getElementById('main-nav');
     if (!navEl) return;

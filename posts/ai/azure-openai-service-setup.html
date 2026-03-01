@@ -2,7 +2,6 @@
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <base href="../../">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azure OpenAI Service: Deploy GPT-4o in Your Own Azure Subscription | My Tech Blog</title>
     <meta name="description" content="Public model ingestion poses spectacular compliance violation risks exposing confidential proprietary datasets irreversibly. Isolate incredible natural language processing capabilities securely establishing private enterprise instances carefully preserving absolute data sovereignty.">
@@ -11,7 +10,7 @@
     <meta property="og:description" content="Public model ingestion poses spectacular compliance violation risks exposing confidential proprietary datasets irreversibly. Isolate incredible natural language processing capabilities securely establishing private enterprise instances carefully preserving absolute data sovereignty.">
     <meta property="og:type" content="article">
     <meta property="article:published_time" content="undefined">
-    <script src="assets/js/theme.js"></script>
+    <script src="../../assets/js/theme.js"></script>
     
     <!-- JSON-LD BreadcrumbList -->
     <script type="application/ld+json">
@@ -59,9 +58,11 @@ a { color: inherit; text-decoration: none; }
 .progress-container { width: 100%; height: 4px; background: transparent; position: fixed; top: 72px; z-index: 999; }
 .progress-bar { height: 4px; background: var(--accent-cyan); width: 0%; }
     </style>
-    <link rel="stylesheet" href="assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="assets/css/blog.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../assets/css/blog.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../assets/css/animations.css" media="print" onload="this.media='all'">
+
+    <script>window.BLOG_ROOT = "../../";</script>
 </head>
 <body>
     <div id="page-loader"><div class="loader-logo">My Tech Blog</div></div>
@@ -134,9 +135,9 @@ a { color: inherit; text-decoration: none; }
     <div id="share-tooltip" class="share-tooltip" style="display:none; position:absolute; background:var(--accent-purple); color:white; padding:0.25rem 0.5rem; border-radius:0.25rem; font-size:0.8rem; cursor:pointer; z-index:9999;">Share Quote</div>
 
     <script type="module" defer>
-        import { initAnimations } from './assets/js/animations.js';
-        import { initNav } from './assets/js/nav.js'; 
-        import { buildTOC, loadAuthorBlock } from './assets/js/loader.js';
+        import { initAnimations } from '../.././assets/js/animations.js';
+        import { initNav } from '../.././assets/js/nav.js'; 
+        import { buildTOC, loadAuthorBlock } from '../.././assets/js/loader.js';
         
         document.addEventListener('DOMContentLoaded', () => {
             initNav();

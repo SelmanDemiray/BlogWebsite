@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <base href="../">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azure Security & Architecture | My Tech Blog</title>
     <meta name="description"
@@ -24,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <script src="assets/js/theme.js"></script>
+    <script src="../assets/js/theme.js"></script>
 
     <!-- CollectionPage Schema -->
     <script type="application/ld+json">
@@ -150,8 +149,10 @@
         }
     </style>
 
-    <link rel="stylesheet" href="assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../assets/css/animations.css" media="print" onload="this.media='all'">
+
+    <script>window.BLOG_ROOT = "../";</script>
 </head>
 
 <body>
@@ -227,11 +228,11 @@
     </footer>
 
     <script type="module" defer>
-        import { initAnimations } from './assets/js/animations.js';
-        import { initNav } from './assets/js/nav.js';
-        import { renderCategory } from './assets/js/loader.js';
-        import { initSearch } from './assets/js/search.js';
-        import { initAds } from './assets/js/ads.js';
+        import { initAnimations } from '.././assets/js/animations.js';
+        import { initNav } from '.././assets/js/nav.js';
+        import { renderCategory } from '.././assets/js/loader.js';
+        import { initSearch } from '.././assets/js/search.js';
+        import { initAds } from '.././assets/js/ads.js';
 
         document.addEventListener('DOMContentLoaded', async () => {
             initNav();

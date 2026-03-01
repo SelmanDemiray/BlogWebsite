@@ -6,8 +6,9 @@ let postsData = null;
 
 async function fetchPosts() {
     if (postsData) return postsData;
+    const base = window.BLOG_ROOT || './';
     try {
-        const response = await fetch(new URL('data/posts.json', document.baseURI).href);
+        const response = await fetch(`${base}data/posts.json`);
         postsData = await response.json();
         return postsData;
     } catch (e) {
@@ -17,7 +18,7 @@ async function fetchPosts() {
 }
 
 function createPostCard(post) {
-    const base = '';
+    const base = window.BLOG_ROOT || './';
     return `
         <article class="card post-card animate-on-scroll">
             <div class="post-card-image-wrap">
@@ -113,7 +114,7 @@ export async function enhancePostPage() {
     if (pillarPost && pillarPost.slug !== currentSlug) {
         const pillarAlert = document.createElement('div');
         pillarAlert.className = 'featured-snippet';
-        const base = '';
+        const base = window.BLOG_ROOT || './';
         pillarAlert.innerHTML = `<strong>Start Here:</strong> If you are new to this topic, read our comprehensive pillar guide first: <a href="${base}posts/${categorySlug}/${pillarPost.slug}.html">${pillarPost.title}</a>.`;
 
         postArticle.insertBefore(pillarAlert, postArticle.firstChild);
@@ -277,7 +278,7 @@ export async function renderFooter() {
 
     const posts = await fetchPosts();
     const latest = [...posts].sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished)).slice(0, 3);
-    const base = '';
+    const base = window.BLOG_ROOT || './';
 
     list.innerHTML = latest.map(p => `
         <li><a href="${base}posts/${p.category}/${p.slug}.html" class="footer-link">${p.title}</a></li>

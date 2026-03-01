@@ -2,7 +2,6 @@
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <base href="../../">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Using GitHub Copilot to Write Better Azure Infrastructure Code | My Tech Blog</title>
     <meta name="description" content="Harnessing algorithmic assistance dramatically streamlines complicated modular Terraform provisioning seamlessly. Employ expertly crafted prompt engineering strategies successfully manifesting entirely valid templates actively preventing catastrophic security misconfigurations.">
@@ -11,7 +10,7 @@
     <meta property="og:description" content="Harnessing algorithmic assistance dramatically streamlines complicated modular Terraform provisioning seamlessly. Employ expertly crafted prompt engineering strategies successfully manifesting entirely valid templates actively preventing catastrophic security misconfigurations.">
     <meta property="og:type" content="article">
     <meta property="article:published_time" content="undefined">
-    <script src="assets/js/theme.js"></script>
+    <script src="../../assets/js/theme.js"></script>
     
     <!-- JSON-LD BreadcrumbList -->
     <script type="application/ld+json">
@@ -59,9 +58,11 @@ a { color: inherit; text-decoration: none; }
 .progress-container { width: 100%; height: 4px; background: transparent; position: fixed; top: 72px; z-index: 999; }
 .progress-bar { height: 4px; background: var(--accent-cyan); width: 0%; }
     </style>
-    <link rel="stylesheet" href="assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="assets/css/blog.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../assets/css/blog.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../assets/css/animations.css" media="print" onload="this.media='all'">
+
+    <script>window.BLOG_ROOT = "../../";</script>
 </head>
 <body>
     <div id="page-loader"><div class="loader-logo">My Tech Blog</div></div>
@@ -135,9 +136,9 @@ a { color: inherit; text-decoration: none; }
     <div id="share-tooltip" class="share-tooltip" style="display:none; position:absolute; background:var(--accent-purple); color:white; padding:0.25rem 0.5rem; border-radius:0.25rem; font-size:0.8rem; cursor:pointer; z-index:9999;">Share Quote</div>
 
     <script type="module" defer>
-        import { initAnimations } from './assets/js/animations.js';
-        import { initNav } from './assets/js/nav.js'; 
-        import { buildTOC, loadAuthorBlock } from './assets/js/loader.js';
+        import { initAnimations } from '../.././assets/js/animations.js';
+        import { initNav } from '../.././assets/js/nav.js'; 
+        import { buildTOC, loadAuthorBlock } from '../.././assets/js/loader.js';
         
         document.addEventListener('DOMContentLoaded', () => {
             initNav();
