@@ -10,7 +10,7 @@
     <link rel="canonical" href="https://yourdomain.com/categories/cloud.html">
     <meta property="og:title" content="Cloud Computing | My Tech Blog">
     <meta property="og:url" content="https://yourdomain.com/categories/cloud.html">
-    <script src="/assets/js/theme.js"></script>
+    <script src="../assets/js/theme.js"></script>
     <script type="application/ld+json">
     { "@context": "https://schema.org", "@type": "CollectionPage", "name": "Cloud Category", "url": "https://yourdomain.com/categories/cloud.html" }
     </script>
@@ -117,8 +117,8 @@
             color: transparent;
         }
     </style>
-    <link rel="stylesheet" href="/assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../assets/css/animations.css" media="print" onload="this.media='all'">
 </head>
 
 <body>
@@ -127,13 +127,13 @@
     </div>
     <nav class="navbar">
         <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-            <a href="/" class="logo">My Tech Blog</a>
+            <a href="../index.html" class="logo">My Tech Blog</a>
             <div class="nav-links">
-                <a href="/categories/azure.html" class="nav-link">Azure</a>
-                <a href="/categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
-                <a href="/categories/devops.html" class="nav-link">DevOps</a>
-                <a href="/categories/cloud.html" class="nav-link" style="color:var(--text-main)">Cloud</a>
-                <a href="/categories/ai.html" class="nav-link">AI</a>
+                <a href="../categories/azure.html" class="nav-link">Azure</a>
+                <a href="../categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
+                <a href="../categories/devops.html" class="nav-link">DevOps</a>
+                <a href="../categories/cloud.html" class="nav-link" style="color:var(--text-main)">Cloud</a>
+                <a href="../categories/ai.html" class="nav-link">AI</a>
             </div>
         </div>
     </nav>
@@ -165,11 +165,11 @@
         </div>
     </footer>
     <script type="module" defer>
-        import { initAnimations } from '/assets/js/animations.js'; import { renderCategory } from '/assets/js/loader.js';
+        import { initAnimations } from '../assets/js/animations.js'; import { renderCategory } from '../assets/js/loader.js';
         document.addEventListener('DOMContentLoaded', async () => {
             initAnimations(); renderCategory('cloud');
             try {
-                const faqs = await (await fetch('/data/faq.json')).json(); const catFaqs = faqs['cloud'] || [];
+                const faqs = await (await fetch('../data/faq.json')).json(); const catFaqs = faqs['cloud'] || [];
                 const container = document.getElementById('faq-container');
                 const schemaObj = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [] };
                 catFaqs.forEach((faq, index) => {
@@ -182,6 +182,14 @@
                 document.getElementById('faq-schema').textContent = JSON.stringify(schemaObj, null, 2);
             } catch (e) { }
         });
+    </script>
+
+    <!-- Loader Failsafe: dismiss after 2s no matter what -->
+    <script>
+        setTimeout(function(){
+            var loader = document.getElementById('page-loader');
+            if(loader) { loader.classList.add('fading'); setTimeout(function(){ loader.style.display='none'; }, 600); }
+        }, 2000);
     </script>
 </body>
 

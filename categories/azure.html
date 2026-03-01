@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <script src="/assets/js/theme.js"></script>
+    <script src="../assets/js/theme.js"></script>
 
     <!-- CollectionPage Schema -->
     <script type="application/ld+json">
@@ -149,8 +149,8 @@
         }
     </style>
 
-    <link rel="stylesheet" href="/assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../assets/css/animations.css" media="print" onload="this.media='all'">
 </head>
 
 <body>
@@ -176,13 +176,13 @@
 
     <nav class="navbar">
         <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-            <a href="/" class="logo">My Tech Blog</a>
+            <a href="../index.html" class="logo">My Tech Blog</a>
             <div class="nav-links">
-                <a href="/categories/azure.html" class="nav-link" style="color:var(--text-main)">Azure</a>
-                <a href="/categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
-                <a href="/categories/devops.html" class="nav-link">DevOps</a>
-                <a href="/categories/cloud.html" class="nav-link">Cloud</a>
-                <a href="/categories/ai.html" class="nav-link">AI</a>
+                <a href="../categories/azure.html" class="nav-link" style="color:var(--text-main)">Azure</a>
+                <a href="../categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
+                <a href="../categories/devops.html" class="nav-link">DevOps</a>
+                <a href="../categories/cloud.html" class="nav-link">Cloud</a>
+                <a href="../categories/ai.html" class="nav-link">AI</a>
                 <button id="search-btn" class="btn-outline"
                     style="padding:0.25rem 0.75rem;border-radius:var(--radius-md);">Search</button>
             </div>
@@ -239,10 +239,10 @@
     </footer>
 
     <script type="module" defer>
-        import { initAnimations } from '/assets/js/animations.js';
-        import { renderCategory } from '/assets/js/loader.js';
-        import { initSearch } from '/assets/js/search.js';
-        import { initAds } from '/assets/js/ads.js';
+        import { initAnimations } from '../assets/js/animations.js';
+        import { renderCategory } from '../assets/js/loader.js';
+        import { initSearch } from '../assets/js/search.js';
+        import { initAds } from '../assets/js/ads.js';
 
         document.addEventListener('DOMContentLoaded', async () => {
             initAnimations();
@@ -252,7 +252,7 @@
 
             // Load FAQs and inject schema
             try {
-                const response = await fetch('/data/faq.json');
+                const response = await fetch('../data/faq.json');
                 const faqs = await response.json();
                 const azureFaqs = faqs['azure'] || [];
 
@@ -298,6 +298,14 @@
 
             } catch (e) { console.error("FAQ fail", e); }
         });
+    </script>
+
+    <!-- Loader Failsafe: dismiss after 2s no matter what -->
+    <script>
+        setTimeout(function(){
+            var loader = document.getElementById('page-loader');
+            if(loader) { loader.classList.add('fading'); setTimeout(function(){ loader.style.display='none'; }, 600); }
+        }, 2000);
     </script>
 </body>
 

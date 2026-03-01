@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <script src="/assets/js/theme.js"></script>
+    <script src="./assets/js/theme.js"></script>
 
     <style>
         /* critical.css partial inline */
@@ -191,8 +191,8 @@
         }
     </style>
 
-    <link rel="stylesheet" href="/assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/animations.css" media="print" onload="this.media='all'">
 </head>
 
 <body>
@@ -202,10 +202,10 @@
 
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">My Tech Blog</a>
+            <a href="./index.html" class="logo">My Tech Blog</a>
             <div class="nav-links">
-                <a href="/about.html" class="nav-link">About</a>
-                <a href="/categories/azure.html" class="nav-link">Azure</a>
+                <a href="./about.html" class="nav-link">About</a>
+                <a href="./categories/azure.html" class="nav-link">Azure</a>
             </div>
         </div>
     </nav>
@@ -259,7 +259,7 @@
     </footer>
 
     <script type="module" defer>
-        import { initAnimations } from '/assets/js/animations.js';
+        import { initAnimations } from './assets/js/animations.js';
 
         document.addEventListener('DOMContentLoaded', () => {
             initAnimations();
@@ -306,6 +306,14 @@
                 }
             });
         });
+    </script>
+
+    <!-- Loader Failsafe: dismiss after 2s no matter what -->
+    <script>
+        setTimeout(function(){
+            var loader = document.getElementById('page-loader');
+            if(loader) { loader.classList.add('fading'); setTimeout(function(){ loader.style.display='none'; }, 600); }
+        }, 2000);
     </script>
 </body>
 

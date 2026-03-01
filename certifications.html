@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <script src="/assets/js/theme.js"></script>
+    <script src="./assets/js/theme.js"></script>
 
     <style>
         /* critical.css partial inline */
@@ -199,8 +199,8 @@
         }
     </style>
 
-    <link rel="stylesheet" href="/assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/animations.css" media="print" onload="this.media='all'">
 </head>
 
 <body>
@@ -210,10 +210,10 @@
 
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">My Tech Blog</a>
+            <a href="./index.html" class="logo">My Tech Blog</a>
             <div class="nav-links">
-                <a href="/certifications.html" class="nav-link" style="color:var(--text-main)">Certifications</a>
-                <a href="/categories/azure.html" class="nav-link">Azure</a>
+                <a href="./certifications.html" class="nav-link" style="color:var(--text-main)">Certifications</a>
+                <a href="./categories/azure.html" class="nav-link">Azure</a>
             </div>
         </div>
     </nav>
@@ -243,7 +243,7 @@
                         <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/"
                             target="_blank" rel="noopener" class="btn btn-outline" style="width: 100%;">Official Exam
                             Details</a>
-                        <a href="/posts/azure/how-to-pass-az500.html" class="btn btn-primary" style="width: 100%;">Read
+                        <a href="./posts/azure/how-to-pass-az500.html" class="btn btn-primary" style="width: 100%;">Read
                             My Study Guide</a>
                     </div>
                 </div>
@@ -259,7 +259,7 @@
                         style="margin-top: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2);">
                         <a href="https://www.comptia.org/certifications/security" target="_blank" rel="noopener"
                             class="btn btn-outline" style="width: 100%;">Official Exam Details</a>
-                        <a href="/posts/cybersecurity/comptia-security-plus-study-guide.html" class="btn btn-primary"
+                        <a href="./posts/cybersecurity/comptia-security-plus-study-guide.html" class="btn btn-primary"
                             style="width: 100%;">Read My Study Guide</a>
                     </div>
                 </div>
@@ -321,11 +321,19 @@
     </footer>
 
     <script type="module" defer>
-        import { initAnimations } from '/assets/js/animations.js';
+        import { initAnimations } from './assets/js/animations.js';
 
         document.addEventListener('DOMContentLoaded', () => {
             initAnimations();
         });
+    </script>
+
+    <!-- Loader Failsafe: dismiss after 2s no matter what -->
+    <script>
+        setTimeout(function(){
+            var loader = document.getElementById('page-loader');
+            if(loader) { loader.classList.add('fading'); setTimeout(function(){ loader.style.display='none'; }, 600); }
+        }, 2000);
     </script>
 </body>
 

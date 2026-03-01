@@ -10,7 +10,7 @@
     <meta property="og:description" content="Microsoft Defender for Cloud provides critical visibility across multi-cloud environments, but misconfigurations are common. Follow this comprehensive guide to correctly enable enhanced security, interpret Secure Score metrics, and automate remediation tasks.">
     <meta property="og:type" content="article">
     <meta property="article:published_time" content="undefined">
-    <script src="/assets/js/theme.js"></script>
+    <script src="../../assets/js/theme.js"></script>
     
     <!-- JSON-LD BreadcrumbList -->
     <script type="application/ld+json">
@@ -58,9 +58,9 @@ a { color: inherit; text-decoration: none; }
 .progress-container { width: 100%; height: 4px; background: transparent; position: fixed; top: 72px; z-index: 999; }
 .progress-bar { height: 4px; background: var(--accent-cyan); width: 0%; }
     </style>
-    <link rel="stylesheet" href="/assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/css/blog.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../assets/css/blog.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../assets/css/animations.css" media="print" onload="this.media='all'">
 </head>
 <body>
     <div id="page-loader"><div class="loader-logo">My Tech Blog</div></div>
@@ -68,12 +68,12 @@ a { color: inherit; text-decoration: none; }
     <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
     <nav class="navbar"><div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-        <a href="/" class="logo">My Tech Blog</a><div class="nav-links">
-            <a href="/categories/azure.html" class="nav-link">Azure</a>
-            <a href="/categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
-            <a href="/categories/devops.html" class="nav-link">DevOps</a>
-            <a href="/categories/cloud.html" class="nav-link">Cloud</a>
-            <a href="/categories/ai.html" class="nav-link">AI</a>
+        <a href="../../index.html" class="logo">My Tech Blog</a><div class="nav-links">
+            <a href="../../categories/azure.html" class="nav-link">Azure</a>
+            <a href="../../categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
+            <a href="../../categories/devops.html" class="nav-link">DevOps</a>
+            <a href="../../categories/cloud.html" class="nav-link">Cloud</a>
+            <a href="../../categories/ai.html" class="nav-link">AI</a>
         </div></div></nav>
 
     <main class="container" style="padding-top: 120px; display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: start;">
@@ -140,8 +140,8 @@ a { color: inherit; text-decoration: none; }
     <div id="share-tooltip" class="share-tooltip" style="display:none; position:absolute; background:var(--accent-purple); color:white; padding:0.25rem 0.5rem; border-radius:0.25rem; font-size:0.8rem; cursor:pointer; z-index:9999;">Share Quote</div>
 
     <script type="module" defer>
-        import { initAnimations } from '/assets/js/animations.js'; 
-        import { buildTOC, loadAuthorBlock } from '/assets/js/loader.js';
+        import { initAnimations } from '../../assets/js/animations.js'; 
+        import { buildTOC, loadAuthorBlock } from '../../assets/js/loader.js';
         
         document.addEventListener('DOMContentLoaded', () => {
             initAnimations();
@@ -192,6 +192,14 @@ a { color: inherit; text-decoration: none; }
                 });
             });
         });
+    </script>
+
+    <!-- Loader Failsafe: dismiss after 2s no matter what -->
+    <script>
+        setTimeout(function(){
+            var loader = document.getElementById('page-loader');
+            if(loader) { loader.classList.add('fading'); setTimeout(function(){ loader.style.display='none'; }, 600); }
+        }, 2000);
     </script>
 </body>
 </html>

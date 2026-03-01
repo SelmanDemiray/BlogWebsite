@@ -26,10 +26,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preload" href="/assets/images/hero-home-poster.webp" as="image" type="image/webp">
+    <link rel="preload" href="./assets/images/hero-home-poster.webp" as="image" type="image/webp">
     
     <!-- Theme Switcher (Inline blocking to prevent FOUC) -->
-    <script src="/assets/js/theme.js"></script>
+    <script src="./assets/js/theme.js"></script>
 
     <!-- Critical Inline CSS -->
     <style>
@@ -88,8 +88,8 @@ img { max-width: 100%; height: auto; display: block; }
     </style>
 
     <!-- Non-critical CSS loaded asynchronously -->
-    <link rel="stylesheet" href="/assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/animations.css" media="print" onload="this.media='all'">
     
     <!-- JSON-LD WebSite Schema with Sitelinks SearchBox -->
     <script type="application/ld+json">
@@ -127,15 +127,15 @@ img { max-width: 100%; height: auto; display: block; }
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">My Tech Blog</a>
+            <a href="./index.html" class="logo">My Tech Blog</a>
             <div class="nav-links">
-                <a href="/categories/azure.html" class="nav-link">Azure</a>
-                <a href="/categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
-                <a href="/categories/devops.html" class="nav-link">DevOps</a>
-                <a href="/categories/cloud.html" class="nav-link">Cloud</a>
-                <a href="/categories/ai.html" class="nav-link">AI</a>
+                <a href="./categories/azure.html" class="nav-link">Azure</a>
+                <a href="./categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
+                <a href="./categories/devops.html" class="nav-link">DevOps</a>
+                <a href="./categories/cloud.html" class="nav-link">Cloud</a>
+                <a href="./categories/ai.html" class="nav-link">AI</a>
                 <button id="search-btn" class="btn-outline" style="padding:0.25rem 0.75rem;border-radius:var(--radius-md);">Search</button>
-                <button id="theme-toggle" class="btn-outline" aria-label="Toggle Theme" style="padding:0.25rem 0.5rem;border-radius:var(--radius-md);" onclick="import('/assets/js/theme.js').then(m => m.toggleTheme())">🌓</button>
+                <button id="theme-toggle" class="btn-outline" aria-label="Toggle Theme" style="padding:0.25rem 0.5rem;border-radius:var(--radius-md);" onclick="import('./assets/js/theme.js').then(m => m.toggleTheme())">🌓</button>
             </div>
             <!-- Mobile Toggle -->
             <button id="mobile-menu-btn" style="display:none;background:transparent;border:none;color:white;font-size:1.5rem;" class="md:hidden">☰</button>
@@ -145,8 +145,8 @@ img { max-width: 100%; height: auto; display: block; }
     <!-- Fullscreen Mobile Menu Overlay -->
     <div id="mobile-menu" class="mobile-menu" style="position:fixed;inset:0;background:var(--bg-darker);z-index:9998;display:none;flex-direction:column;justify-content:center;align-items:center;padding:var(--space-8);transform:translateX(100%);transition:transform 0.3s ease;">
         <button id="mobile-menu-close" style="position:absolute;top:20px;right:20px;background:transparent;border:none;color:white;font-size:2rem;">&times;</button>
-        <a href="/categories/azure.html" class="nav-link mobile-menu-link" style="font-size:2rem;margin-bottom:var(--space-4);transition-delay:0.1s;">Azure</a>
-        <a href="/categories/cybersecurity.html" class="nav-link mobile-menu-link" style="font-size:2rem;margin-bottom:var(--space-4);transition-delay:0.2s;">Cybersecurity</a>
+        <a href="./categories/azure.html" class="nav-link mobile-menu-link" style="font-size:2rem;margin-bottom:var(--space-4);transition-delay:0.1s;">Azure</a>
+        <a href="./categories/cybersecurity.html" class="nav-link mobile-menu-link" style="font-size:2rem;margin-bottom:var(--space-4);transition-delay:0.2s;">Cybersecurity</a>
         ...
     </div>
 
@@ -160,7 +160,7 @@ img { max-width: 100%; height: auto; display: block; }
             </div>
             <div class="hero-cta">
                 <a href="#featured" class="btn btn-primary pulse-shadow">Read Latest Posts</a>
-                <a href="/about.html" class="btn btn-outline">About the Author</a>
+                <a href="./about.html" class="btn btn-outline">About the Author</a>
             </div>
         </div>
     </header>
@@ -196,7 +196,7 @@ img { max-width: 100%; height: auto; display: block; }
         <section class="container" style="padding-top: var(--space-16);">
             <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:var(--space-6);">
                 <h2 class="animate-on-scroll" style="margin:0;">Recent Publications</h2>
-                <a href="/categories/cloud.html" class="animate-on-scroll" style="color:var(--accent-cyan);font-weight:500;">View All →</a>
+                <a href="./categories/cloud.html" class="animate-on-scroll" style="color:var(--accent-cyan);font-weight:500;">View All →</a>
             </div>
             <div id="recent-posts-grid" class="grid lg:grid-cols-4 md:grid-cols-2 stagger-grid">
                 <!-- Injected via loader.js -->
@@ -227,14 +227,14 @@ img { max-width: 100%; height: auto; display: block; }
                 <div class="footer-col animate-on-scroll">
                     <h3>Explore</h3>
                     <ul class="footer-links">
-                        <li><a href="/categories/azure.html" class="footer-link">Azure Setup</a></li>
-                        <li><a href="/categories/cybersecurity.html" class="footer-link">Cybersecurity</a></li>
-                        <li><a href="/categories/devops.html" class="footer-link">DevOps CI/CD</a></li>
-                        <li><a href="/categories/cloud.html" class="footer-link">Cloud Fundamentals</a></li>
-                        <li><a href="/categories/ai.html" class="footer-link">AI in SecOps</a></li>
-                        <li><a href="/certifications.html" class="footer-link">Certifications</a></li>
-                        <li><a href="/about.html" class="footer-link">About</a></li>
-                        <li><a href="/contact.html" class="footer-link">Contact</a></li>
+                        <li><a href="./categories/azure.html" class="footer-link">Azure Setup</a></li>
+                        <li><a href="./categories/cybersecurity.html" class="footer-link">Cybersecurity</a></li>
+                        <li><a href="./categories/devops.html" class="footer-link">DevOps CI/CD</a></li>
+                        <li><a href="./categories/cloud.html" class="footer-link">Cloud Fundamentals</a></li>
+                        <li><a href="./categories/ai.html" class="footer-link">AI in SecOps</a></li>
+                        <li><a href="./certifications.html" class="footer-link">Certifications</a></li>
+                        <li><a href="./about.html" class="footer-link">About</a></li>
+                        <li><a href="./contact.html" class="footer-link">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col animate-on-scroll">
@@ -257,7 +257,7 @@ img { max-width: 100%; height: auto; display: block; }
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => {
+                navigator.serviceWorker.register('./sw.js').catch(err => {
                     console.error('ServiceWorker registration failed: ', err);
                 });
             });
@@ -266,10 +266,10 @@ img { max-width: 100%; height: auto; display: block; }
 
     <!-- Main Logic Scripts -->
     <script type="module" defer>
-        import { initAnimations } from '/assets/js/animations.js';
-        import { renderHomepage, renderFooter } from '/assets/js/loader.js';
-        import { initSearch } from '/assets/js/search.js';
-        import { initAds } from '/assets/js/ads.js';
+        import { initAnimations } from './assets/js/animations.js';
+        import { renderHomepage, renderFooter } from './assets/js/loader.js';
+        import { initSearch } from './assets/js/search.js';
+        import { initAds } from './assets/js/ads.js';
 
         // Initialize features
         document.addEventListener('DOMContentLoaded', () => {
@@ -330,6 +330,14 @@ img { max-width: 100%; height: auto; display: block; }
             initSearch();
             initAds();
         });
+    </script>
+
+    <!-- Loader Failsafe: dismiss after 2s no matter what -->
+    <script>
+        setTimeout(function(){
+            var loader = document.getElementById('page-loader');
+            if(loader) { loader.classList.add('fading'); setTimeout(function(){ loader.style.display='none'; }, 600); }
+        }, 2000);
     </script>
 </body>
 </html>

@@ -4,11 +4,11 @@ const CACHE_NAME = 'my-tech-blog-v1';
 
 // Assets to cache immediately on install
 const PRECACHE_ASSETS = [
-    '/assets/css/critical.css',
-    '/assets/css/global.css',
-    '/assets/css/animations.css',
-    '/assets/js/utils.js',
-    '/assets/js/theme.js'
+    './assets/css/critical.css',
+    './assets/css/global.css',
+    './assets/css/animations.css',
+    './assets/js/utils.js',
+    './assets/js/theme.js'
 ];
 
 self.addEventListener('install', event => {

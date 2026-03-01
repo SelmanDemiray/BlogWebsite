@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <script src="/assets/js/theme.js"></script>
+    <script src="./assets/js/theme.js"></script>
 
     <style>
         /* critical.css partial inline */
@@ -208,8 +208,8 @@
         }
     </style>
 
-    <link rel="stylesheet" href="/assets/css/global.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/animations.css" media="print" onload="this.media='all'">
 
     <!-- JSON-LD Person Schema -->
     <script type="application/ld+json">
@@ -253,18 +253,18 @@
 
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">My Tech Blog</a>
+            <a href="./index.html" class="logo">My Tech Blog</a>
             <div class="nav-links">
-                <a href="/categories/azure.html" class="nav-link">Azure</a>
-                <a href="/categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
-                <a href="/categories/devops.html" class="nav-link">DevOps</a>
-                <a href="/categories/cloud.html" class="nav-link">Cloud</a>
-                <a href="/categories/ai.html" class="nav-link">AI</a>
+                <a href="./categories/azure.html" class="nav-link">Azure</a>
+                <a href="./categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
+                <a href="./categories/devops.html" class="nav-link">DevOps</a>
+                <a href="./categories/cloud.html" class="nav-link">Cloud</a>
+                <a href="./categories/ai.html" class="nav-link">AI</a>
                 <button id="search-btn" class="btn-outline"
                     style="padding:0.25rem 0.75rem;border-radius:var(--radius-md);">Search</button>
                 <button id="theme-toggle" class="btn-outline"
                     style="padding:0.25rem 0.5rem;border-radius:var(--radius-md);"
-                    onclick="import('/assets/js/theme.js').then(m => m.toggleTheme())">🌓</button>
+                    onclick="import('./assets/js/theme.js').then(m => m.toggleTheme())">🌓</button>
             </div>
         </div>
     </nav>
@@ -423,15 +423,23 @@
     </footer>
 
     <script type="module" defer>
-        import { initAnimations } from '/assets/js/animations.js';
-        import { initSearch } from '/assets/js/search.js';
-        import { renderFooter } from '/assets/js/loader.js';
+        import { initAnimations } from './assets/js/animations.js';
+        import { initSearch } from './assets/js/search.js';
+        import { renderFooter } from './assets/js/loader.js';
 
         document.addEventListener('DOMContentLoaded', () => {
             initAnimations();
             initSearch();
             renderFooter();
         });
+    </script>
+
+    <!-- Loader Failsafe: dismiss after 2s no matter what -->
+    <script>
+        setTimeout(function(){
+            var loader = document.getElementById('page-loader');
+            if(loader) { loader.classList.add('fading'); setTimeout(function(){ loader.style.display='none'; }, 600); }
+        }, 2000);
     </script>
 </body>
 
