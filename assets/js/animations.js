@@ -177,7 +177,7 @@ function initCursor() {
 
 // Intersection Observer for scroll animations
 function initScrollAnimations() {
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
@@ -190,7 +190,7 @@ function initScrollAnimations() {
                     }
                 });
 
-                observer.unobserve(entry.target);
+                obs.unobserve(entry.target);
             }
         });
     }, {
@@ -212,6 +212,38 @@ function initScrollAnimations() {
             card.style.transitionDelay = `${index * 80}ms`;
         });
     });
+
+    // MutationObserver: watch for dynamically added .animate-on-scroll elements
+    const mutationObs = new MutationObserver((mutations) => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType !== 1) return;
+                // Check the node itself
+                if (node.classList && node.classList.contains('animate-on-scroll') && !node.classList.contains('is-visible')) {
+                    node.style.willChange = 'opacity, transform';
+                    observer.observe(node);
+                }
+                // Check descendants
+                if (node.querySelectorAll) {
+                    node.querySelectorAll('.animate-on-scroll:not(.is-visible)').forEach(el => {
+                        el.style.willChange = 'opacity, transform';
+                        observer.observe(el);
+                    });
+                }
+            });
+        });
+
+        // Also apply stagger delays to new grid cards
+        document.querySelectorAll('.stagger-grid').forEach(grid => {
+            const cards = grid.querySelectorAll('.post-card, .animate-on-scroll');
+            cards.forEach((card, index) => {
+                if (!card.style.transitionDelay || card.style.transitionDelay === '0s') {
+                    card.style.transitionDelay = `${index * 80}ms`;
+                }
+            });
+        });
+    });
+    mutationObs.observe(document.body, { childList: true, subtree: true });
 }
 
 // Loader fade effect
