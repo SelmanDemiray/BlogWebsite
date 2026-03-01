@@ -209,15 +209,8 @@
         <div class="loader-logo">My Tech Blog</div>
     </div>
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="./index.html" class="logo">My Tech Blog</a>
-            <div class="nav-links">
-                <a href="./certifications.html" class="nav-link" style="color:var(--text-main)">Certifications</a>
-                <a href="./categories/azure.html" class="nav-link">Azure</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Navbar (injected by nav.js) -->
+    <nav id="main-nav"></nav>
 
     <main style="padding-top: 100px; flex: 1;">
         <header class="container" style="text-align: center; margin-bottom: var(--space-8); max-width: 800px;">
@@ -323,17 +316,19 @@
 
     <script type="module" defer>
         import { initAnimations } from './assets/js/animations.js';
+        import { initNav } from './assets/js/nav.js';
 
         document.addEventListener('DOMContentLoaded', () => {
+            initNav();
             initAnimations();
         });
     </script>
 
     <!-- Loader Failsafe: dismiss after 2s no matter what -->
     <script>
-        setTimeout(function(){
+        setTimeout(function () {
             var loader = document.getElementById('page-loader');
-            if(loader) { loader.classList.add('fading'); setTimeout(function(){ loader.style.display='none'; }, 600); }
+            if (loader) { loader.classList.add('fading'); setTimeout(function () { loader.style.display = 'none'; }, 600); }
         }, 2000);
     </script>
 </body>

@@ -174,21 +174,8 @@
             </div>
         </div>
     </div>
-
-    <nav class="navbar">
-        <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-            <a href="../index.html" class="logo">My Tech Blog</a>
-            <div class="nav-links">
-                <a href="../categories/azure.html" class="nav-link" style="color:var(--text-main)">Azure</a>
-                <a href="../categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
-                <a href="../categories/devops.html" class="nav-link">DevOps</a>
-                <a href="../categories/cloud.html" class="nav-link">Cloud</a>
-                <a href="../categories/ai.html" class="nav-link">AI</a>
-                <button id="search-btn" class="btn-outline"
-                    style="padding:0.25rem 0.75rem;border-radius:var(--radius-md);">Search</button>
-            </div>
-        </div>
-    </nav>
+    <!-- Navbar (injected by nav.js) -->
+    <nav id="main-nav"></nav>
 
     <main style="padding-top: 100px; flex: 1;">
         <!-- Category Hero -->
@@ -241,11 +228,13 @@
 
     <script type="module" defer>
         import { initAnimations } from '../assets/js/animations.js';
+        import { initNav } from '../assets/js/nav.js';
         import { renderCategory } from '../assets/js/loader.js';
         import { initSearch } from '../assets/js/search.js';
         import { initAds } from '../assets/js/ads.js';
 
         document.addEventListener('DOMContentLoaded', async () => {
+            initNav();
             initAnimations();
             renderCategory('azure');
             initSearch();

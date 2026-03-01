@@ -17,14 +17,15 @@ async function fetchPosts() {
 }
 
 function createPostCard(post) {
+    const base = document.querySelector('base')?.getAttribute('href') || './';
     return `
         <article class="card post-card animate-on-scroll">
             <div class="post-card-image-wrap">
                 <span class="post-badge">${post.category.toUpperCase()}</span>
                 <!-- Use WebP with fallback -->
                 <picture>
-                    <source srcset="assets/images/${post.thumbnail}.webp" type="image/webp">
-                    <img src="assets/images/${post.thumbnail}.jpg" 
+                    <source srcset="${base}assets/images/${post.thumbnail}.webp" type="image/webp">
+                    <img src="${base}assets/images/${post.thumbnail}.jpg" 
                          alt="${post.title}" 
                          class="post-card-image" 
                          loading="lazy" 
@@ -34,7 +35,7 @@ function createPostCard(post) {
             </div>
             <div class="post-card-content">
                 <h3 class="post-card-title">
-                    <a href="posts/${post.category}/${post.slug}.html">${post.title}</a>
+                    <a href="${base}posts/${post.category}/${post.slug}.html">${post.title}</a>
                 </h3>
                 <p class="post-card-excerpt">${post.excerpt}</p>
                 <div class="tags">
@@ -112,7 +113,8 @@ export async function enhancePostPage() {
     if (pillarPost && pillarPost.slug !== currentSlug) {
         const pillarAlert = document.createElement('div');
         pillarAlert.className = 'featured-snippet';
-        pillarAlert.innerHTML = `<strong>Start Here:</strong> If you are new to this topic, read our comprehensive pillar guide first: <a href="posts/${categorySlug}/${pillarPost.slug}.html">${pillarPost.title}</a>.`;
+        const base = document.querySelector('base')?.getAttribute('href') || './';
+        pillarAlert.innerHTML = `<strong>Start Here:</strong> If you are new to this topic, read our comprehensive pillar guide first: <a href="${base}posts/${categorySlug}/${pillarPost.slug}.html">${pillarPost.title}</a>.`;
 
         postArticle.insertBefore(pillarAlert, postArticle.firstChild);
     }
@@ -129,15 +131,15 @@ export async function enhancePostPage() {
     }
 
     // Table of Contents generator
-    generateTOC();
+    buildTOC('post-body', 'toc');
 
     // Highlight to share
     initShareTooltip();
 }
 
-function generateTOC() {
-    const article = document.querySelector('.post-body');
-    const tocContainer = document.querySelector('.toc');
+export function buildTOC(contentId, tocId) {
+    const article = document.getElementById(contentId) || document.querySelector('.post-body');
+    const tocContainer = document.getElementById(tocId) || document.querySelector('.toc');
     if (!article || !tocContainer) return;
 
     const headings = article.querySelectorAll('h2');
@@ -170,13 +172,44 @@ function generateTOC() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 tocLinks.forEach(link => link.classList.remove('toc-active'));
-                const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+                const activeLink = document.querySelector(`#${tocId} a[href="#${entry.target.id}"]`) || document.querySelector(`.toc a[href="#${entry.target.id}"]`);
                 if (activeLink) activeLink.classList.add('toc-active');
             }
         });
     }, { rootMargin: '-20% 0px -80% 0px' });
 
     headings.forEach(h2 => observer.observe(h2));
+}
+
+export async function loadAuthorBlock(containerId) {
+    const container = document.getElementById(containerId);
+
+    // Find current post metadata and update header spans
+    const urlParts = window.location.pathname.split('/');
+    const currentSlug = urlParts[urlParts.length - 1].replace(/\.html$/, '');
+
+    const posts = await fetchPosts();
+    const currentPost = posts.find(p => p.slug === currentSlug);
+
+    if (currentPost) {
+        const spans = document.querySelectorAll('header span');
+        if (spans.length >= 3) {
+            spans[0].innerHTML = `📅 ${formatDate(currentPost.datePublished)}`;
+            spans[1].innerHTML = `⏱ ${currentPost.readTime}`;
+            spans[2].innerHTML = `✍️ ${currentPost.author}`;
+        }
+    }
+
+    if (!container) return;
+    container.innerHTML = `
+        <div style="display:flex; gap:1.5rem; align-items:center; margin-top:2rem; padding:2rem; background:rgba(255,255,255,0.02); border-radius:var(--radius-lg); border:1px solid var(--border-color);">
+            <div style="font-size:3rem;">👨‍💻</div>
+            <div>
+                <h4 style="margin-bottom:0.5rem;">${currentPost ? currentPost.author : 'Selman Demiray'}</h4>
+                <p style="color:var(--text-muted); font-size:0.95rem;">Cloud Security Engineer and Technical Writer specializing in Azure, DevOps, and Zero Trust Architecture.</p>
+            </div>
+        </div>
+    `;
 }
 
 function initShareTooltip() {
@@ -244,8 +277,9 @@ export async function renderFooter() {
 
     const posts = await fetchPosts();
     const latest = [...posts].sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished)).slice(0, 3);
+    const base = document.querySelector('base')?.getAttribute('href') || './';
 
     list.innerHTML = latest.map(p => `
-        <li><a href="posts/${p.category}/${p.slug}.html" class="footer-link">${p.title}</a></li>
+        <li><a href="${base}posts/${p.category}/${p.slug}.html" class="footer-link">${p.title}</a></li>
     `).join('');
 }

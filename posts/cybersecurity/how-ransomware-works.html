@@ -36,7 +36,7 @@
       "headline": "How Ransomware Works in 2026: Attack Chains, Real Examples, and How to Stop It",
       "description": "Ransomware groups have evolved into sophisticated enterprises executing double-extortion campaigns at scale. Deconstruct the anatomy of modern ransomware kill chains and understand the critical security controls needed to disrupt attackers before encryption occurs.",
       "datePublished": "undefined",
-      "author": { "@type": "Person", "name": "Your Name" }
+      "author": { "@type": "Person", "name": "Selman Demiray" }
     }
     </script>
 
@@ -67,15 +67,8 @@ a { color: inherit; text-decoration: none; }
     <div id="page-loader"><div class="loader-logo">My Tech Blog</div></div>
     
     <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
-
-    <nav class="navbar"><div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-        <a href="../../index.html" class="logo">My Tech Blog</a><div class="nav-links">
-            <a href="../../categories/azure.html" class="nav-link">Azure</a>
-            <a href="../../categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
-            <a href="../../categories/devops.html" class="nav-link">DevOps</a>
-            <a href="../../categories/cloud.html" class="nav-link">Cloud</a>
-            <a href="../../categories/ai.html" class="nav-link">AI</a>
-        </div></div></nav>
+    <!-- Navbar (injected by nav.js) -->
+    <nav id="main-nav"></nav>
 
     <main class="container" style="padding-top: 120px; display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: start;">
         <article class="post-article">
@@ -141,10 +134,12 @@ a { color: inherit; text-decoration: none; }
     <div id="share-tooltip" class="share-tooltip" style="display:none; position:absolute; background:var(--accent-purple); color:white; padding:0.25rem 0.5rem; border-radius:0.25rem; font-size:0.8rem; cursor:pointer; z-index:9999;">Share Quote</div>
 
     <script type="module" defer>
-        import { initAnimations } from '../../assets/js/animations.js'; 
+        import { initAnimations } from '../../assets/js/animations.js';
+        import { initNav } from '../../assets/js/nav.js'; 
         import { buildTOC, loadAuthorBlock } from '../../assets/js/loader.js';
         
         document.addEventListener('DOMContentLoaded', () => {
+            initNav();
             initAnimations();
             
             // Progress Bar

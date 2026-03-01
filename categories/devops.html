@@ -128,18 +128,8 @@
     <div id="page-loader">
         <div class="loader-logo">My Tech Blog</div>
     </div>
-    <nav class="navbar">
-        <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-            <a href="../index.html" class="logo">My Tech Blog</a>
-            <div class="nav-links">
-                <a href="../categories/azure.html" class="nav-link">Azure</a>
-                <a href="../categories/cybersecurity.html" class="nav-link">Cybersecurity</a>
-                <a href="../categories/devops.html" class="nav-link" style="color:var(--text-main)">DevOps</a>
-                <a href="../categories/cloud.html" class="nav-link">Cloud</a>
-                <a href="../categories/ai.html" class="nav-link">AI</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Navbar (injected by nav.js) -->
+    <nav id="main-nav"></nav>
     <main style="padding-top: 100px; flex: 1;">
         <header class="container animate-on-scroll fade-in"
             style="margin-bottom: var(--space-12); max-width: 800px; text-align: center;">
@@ -168,8 +158,10 @@
         </div>
     </footer>
     <script type="module" defer>
-        import { initAnimations } from '../assets/js/animations.js'; import { renderCategory } from '../assets/js/loader.js';
+        import { initAnimations } from '../assets/js/animations.js';
+        import { initNav } from '../assets/js/nav.js'; import { renderCategory } from '../assets/js/loader.js';
         document.addEventListener('DOMContentLoaded', async () => {
+            initNav();
             initAnimations(); renderCategory('devops');
             try {
                 const faqs = await (await fetch('data/faq.json')).json(); const azureFaqs = faqs['devops'] || [];
