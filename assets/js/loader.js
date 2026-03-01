@@ -68,6 +68,13 @@ export async function renderHomepage() {
         const recent = [...posts].sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished)).slice(0, 8);
         recentGrid.innerHTML = recent.map(createPostCard).join('');
     }
+
+    // Force visibility on injected cards after a frame
+    requestAnimationFrame(() => {
+        document.querySelectorAll('.post-card.animate-on-scroll').forEach(card => {
+            card.classList.add('is-visible');
+        });
+    });
 }
 
 // Logic for Category pages
@@ -79,6 +86,13 @@ export async function renderCategory(categorySlug) {
     const categoryPosts = posts.filter(p => p.category === categorySlug);
 
     grid.innerHTML = categoryPosts.map(createPostCard).join('');
+
+    // Force visibility on injected cards
+    requestAnimationFrame(() => {
+        grid.querySelectorAll('.post-card.animate-on-scroll').forEach(card => {
+            card.classList.add('is-visible');
+        });
+    });
 }
 
 // Logic for Single Post page (Related Posts & Pillar Link)
