@@ -7,7 +7,7 @@ let postsData = null;
 async function fetchPosts() {
     if (postsData) return postsData;
     try {
-        const response = await fetch('data/posts.json');
+        const response = await fetch(new URL('data/posts.json', document.baseURI).href);
         postsData = await response.json();
         return postsData;
     } catch (e) {
@@ -23,8 +23,8 @@ function createPostCard(post) {
                 <span class="post-badge">${post.category.toUpperCase()}</span>
                 <!-- Use WebP with fallback -->
                 <picture>
-                    <source srcset="/assets/images/${post.thumbnail}.webp" type="image/webp">
-                    <img src="/assets/images/${post.thumbnail}.jpg" 
+                    <source srcset="assets/images/${post.thumbnail}.webp" type="image/webp">
+                    <img src="assets/images/${post.thumbnail}.jpg" 
                          alt="${post.title}" 
                          class="post-card-image" 
                          loading="lazy" 
@@ -34,7 +34,7 @@ function createPostCard(post) {
             </div>
             <div class="post-card-content">
                 <h3 class="post-card-title">
-                    <a href="/posts/${post.category}/${post.slug}.html">${post.title}</a>
+                    <a href="posts/${post.category}/${post.slug}.html">${post.title}</a>
                 </h3>
                 <p class="post-card-excerpt">${post.excerpt}</p>
                 <div class="tags">
@@ -98,7 +98,7 @@ export async function enhancePostPage() {
     if (pillarPost && pillarPost.slug !== currentSlug) {
         const pillarAlert = document.createElement('div');
         pillarAlert.className = 'featured-snippet';
-        pillarAlert.innerHTML = `<strong>Start Here:</strong> If you are new to this topic, read our comprehensive pillar guide first: <a href="/posts/${categorySlug}/${pillarPost.slug}.html">${pillarPost.title}</a>.`;
+        pillarAlert.innerHTML = `<strong>Start Here:</strong> If you are new to this topic, read our comprehensive pillar guide first: <a href="posts/${categorySlug}/${pillarPost.slug}.html">${pillarPost.title}</a>.`;
 
         postArticle.insertBefore(pillarAlert, postArticle.firstChild);
     }
@@ -232,6 +232,6 @@ export async function renderFooter() {
     const latest = [...posts].sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished)).slice(0, 3);
 
     list.innerHTML = latest.map(p => `
-        <li><a href="/posts/${p.category}/${p.slug}.html" class="footer-link">${p.title}</a></li>
+        <li><a href="posts/${p.category}/${p.slug}.html" class="footer-link">${p.title}</a></li>
     `).join('');
 }
