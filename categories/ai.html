@@ -173,7 +173,7 @@
         document.addEventListener('DOMContentLoaded', async () => {
             initAnimations(); renderCategory('ai');
             try {
-                const faqs = await (await fetch('../data/faq.json')).json(); const catFaqs = faqs['ai'] || [];
+                const faqs = await (await fetch('data/faq.json')).json(); const catFaqs = faqs['ai'] || [];
                 const container = document.getElementById('faq-container');
                 const schemaObj = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [] };
                 catFaqs.forEach((faq, index) => {

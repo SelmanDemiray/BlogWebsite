@@ -253,7 +253,7 @@
 
             // Load FAQs and inject schema
             try {
-                const response = await fetch('../data/faq.json');
+                const response = await fetch('data/faq.json');
                 const faqs = await response.json();
                 const azureFaqs = faqs['azure'] || [];
 

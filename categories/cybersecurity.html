@@ -198,7 +198,7 @@
         document.addEventListener('DOMContentLoaded', async () => {
             initAnimations(); renderCategory('cybersecurity');
             try {
-                const response = await fetch('../data/faq.json');
+                const response = await fetch('data/faq.json');
                 const faqs = await response.json(); const azureFaqs = faqs['cybersecurity'] || [];
                 const container = document.getElementById('faq-container');
                 const schemaObj = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [] };

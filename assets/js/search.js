@@ -7,7 +7,7 @@ let postsData = null;
 async function loadSearchData() {
     if (postsData) return postsData;
     try {
-        const response = await fetch('/data/posts.json');
+        const response = await fetch('data/posts.json');
         postsData = await response.json();
         return postsData;
     } catch (e) {

@@ -172,7 +172,7 @@
         document.addEventListener('DOMContentLoaded', async () => {
             initAnimations(); renderCategory('devops');
             try {
-                const faqs = await (await fetch('../data/faq.json')).json(); const azureFaqs = faqs['devops'] || [];
+                const faqs = await (await fetch('data/faq.json')).json(); const azureFaqs = faqs['devops'] || [];
                 const container = document.getElementById('faq-container');
                 const schemaObj = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [] };
                 azureFaqs.forEach((faq, index) => {

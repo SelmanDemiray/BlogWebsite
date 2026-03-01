@@ -170,7 +170,7 @@
         document.addEventListener('DOMContentLoaded', async () => {
             initAnimations(); renderCategory('cloud');
             try {
-                const faqs = await (await fetch('../data/faq.json')).json(); const catFaqs = faqs['cloud'] || [];
+                const faqs = await (await fetch('data/faq.json')).json(); const catFaqs = faqs['cloud'] || [];
                 const container = document.getElementById('faq-container');
                 const schemaObj = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [] };
                 catFaqs.forEach((faq, index) => {
