@@ -1,0 +1,112 @@
+{
+    "azure": [
+        {
+            "question": "What is the difference between Azure AD Free and Premium P1/P2?",
+            "answer": "Azure AD Free provides basic identity and access management, including SSO for a limited number of apps and basic security reports. Premium P1 adds advanced administration such as dynamic groups, self-service password reset (SSPR), and Conditional Access. Premium P2 builds upon P1 by adding Identity Protection (risk-based Conditional Access) and Privileged Identity Management (PIM) for just-in-time access."
+        },
+        {
+            "question": "How does Azure Conditional Access enhance cloud security?",
+            "answer": "Conditional Access is Azure AD's zero trust policy engine. It evaluates signals like user risk, device compliance, location, and application sensitivity in real-time. Based on these signals, it can block access, require MFA, or limit session controls, ensuring that only trusted users on trusted devices can access corporate resources."
+        },
+        {
+            "question": "What is Microsoft Defender for Cloud and why is it important?",
+            "answer": "Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) solution. It continuously assesses your Azure, AWS, and GCP environments, provides a Secure Score, identifies misconfigurations, and offers advanced threat protection for servers, containers, databases, and storage."
+        },
+        {
+            "question": "How do Network Security Groups (NSGs) differ from Azure Firewall?",
+            "answer": "NSGs provide basic layer 3/layer 4 traffic filtering applied at the subnet or network interface level based on IP, port, and protocol. Azure Firewall is a managed, cloud-based network security service that provides advanced features like stateful layer 3-7 inspection, threat intelligence-based filtering, SNAT/DNAT, and centralized logging across multiple VNETs."
+        },
+        {
+            "question": "What is Azure Key Vault and what should it be used for?",
+            "answer": "Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. It centralizes secret management, preventing credentials from being hardcoded in application source code."
+        }
+    ],
+    "cybersecurity": [
+        {
+            "question": "What is the Zero Trust Security Model?",
+            "answer": "Zero Trust is a security framework based on the principle 'never trust, always verify.' It assumes that threats exist both inside and outside the network perimeter. Therefore, every access request must be fully authenticated, authorized, and encrypted before granting access, regardless of whether the user is on the corporate network or working remotely."
+        },
+        {
+            "question": "How does phishing differ from spear-phishing?",
+            "answer": "Phishing refers to broad, untargeted email campaigns attempting to deceive a wide audience into clicking malicious links or downloading malware. Spear-phishing is highly targeted and personalized; attackers research a specific individual or organization, crafting convincing emails that often appear to come from a trusted colleague or vendor to steal credentials or sensitive data."
+        },
+        {
+            "question": "What is multi-factor authentication (MFA) and why is it essential?",
+            "answer": "MFA is a security mechanism that requires users to provide two or more distinct forms of identification before gaining access. This typically includes something you know (password), something you have (authenticator app, security key), or something you are (biometrics). MFA is critical because it prevents account takeover even if an attacker successfully compromises a password."
+        },
+        {
+            "question": "What is the purpose of an Incident Response Plan?",
+            "answer": "An Incident Response (IR) plan is a structured methodology for handling security breaches or cyberattacks. Its purpose is to prepare an organization to quickly identify, contain, eradicate, and recover from an incident. A well-tested IR plan minimizes operational downtime, reduces financial impact, and ensures forensic evidence is preserved for post-incident analysis."
+        },
+        {
+            "question": "What is the difference between a vulnerability assessment and penetration testing?",
+            "answer": "A vulnerability assessment is an automated process of identifying and cataloging known security flaws in systems, often prioritizing them by severity. Penetration testing (pentesting) is a manual, simulated cyberattack conducted by ethical hackers to exploit those vulnerabilities, demonstrating the actual risk and potential impact if a real attacker breached the system."
+        }
+    ],
+    "devops": [
+        {
+            "question": "What is the core philosophy behind DevSecOps?",
+            "answer": "DevSecOps integrates security testing and remediation continuously throughout the software development lifecycle (SDLC), rather than treating security as a separate phase at the end. By 'shifting left,' developers identify and fix vulnerabilities early in the pipeline using automated tools like SAST, DAST, and dependency scanning, reducing risk and accelerating delivery."
+        },
+        {
+            "question": "Why is Infrastructure as Code (IaC) important in DevOps?",
+            "answer": "IaC allows infrastructure to be provisioned and managed using code (like Terraform or ARM templates) rather than manual processes. This ensures environments are consistent, reproducible, and version-controlled. IaC enables automated testing of infrastructure, rapid disaster recovery, and integration directly into CI/CD pipelines for seamless deployments."
+        },
+        {
+            "question": "What is the difference between Continuous Integration (CI) and Continuous Deployment (CD)?",
+            "answer": "Continuous Integration (CI) automates the process of merging developer code changes into a central repository, followed by automated builds and unit tests to detect integration errors early. Continuous Deployment (CD) automates the release of that validated code directly into production environments without manual intervention, ensuring rapid feature delivery."
+        },
+        {
+            "question": "How do Docker and Kubernetes work together?",
+            "answer": "Docker is a containerization platform used to package an application and its dependencies into a standardized unit called a container. Kubernetes is an orchestration engine that manages those containers at scale. While Docker creates the containers, Kubernetes deploys, scales, load-balances, and monitors them across clusters of underlying compute nodes."
+        },
+        {
+            "question": "What is a Git branching strategy and why do teams need one?",
+            "answer": "A Git branching strategy determines how developers create, merge, and manage code branches (e.g., GitFlow, Trunk-based development). Teams need a defined strategy to avoid merge conflicts, ensure the main branch is always stable and deployable, facilitate parallel feature development, and maintain a clear history of source code changes."
+        }
+    ],
+    "cloud": [
+        {
+            "question": "What is the Shared Responsibility Model in cloud computing?",
+            "answer": "The Shared Responsibility Model defines the security obligations of the cloud provider versus the customer. Generally, the provider secures the underlying infrastructure (the 'cloud'), while the customer is responsible for securing the data, applications, identity, and configurations hosted on that infrastructure (security 'in' the cloud)."
+        },
+        {
+            "question": "What are the primary differences between IaaS, PaaS, and SaaS?",
+            "answer": "Infrastructure as a Service (IaaS) provides virtualized computing resources (VMs, storage, networking) managed by the customer. Platform as a Service (PaaS) abstracts the OS and middleware, providing a managed platform for developers to deploy applications. Software as a Service (SaaS) delivers fully functional, managed applications (e.g., Office 365) directly to end-users."
+        },
+        {
+            "question": "How can organizations optimize their cloud spending?",
+            "answer": "Organizations can optimize cloud costs by right-sizing resources based on actual utilization, shutting down non-production environments during off-hours, utilizing Reserved Instances or Savings Plans for predictable workloads, leveraging spot instances for fault-tolerant tasks, and establishing budget alerts and granular tagging policies to track department spending."
+        },
+        {
+            "question": "What is a virtual network (VNet or VPC)?",
+            "answer": "A virtual network is a logically isolated section of the public cloud where customers can launch resources in a defined virtual network environment. It provides complete control over IP address ranges, subnets, routing tables, and network gateways, enabling secure communication between cloud resources and on-premises environments."
+        },
+        {
+            "question": "What characterizes serverless computing?",
+            "answer": "Serverless computing abstracts infrastructure management completely away from developers. The cloud provider automatically provisions, scales, and manages the servers required to run the code. Customers only pay for the exact compute time consumed, defined down to the millisecond, making it highly cost-effective for event-driven and spiky workloads."
+        }
+    ],
+    "ai": [
+        {
+            "question": "How is AI transforming cloud security operations?",
+            "answer": "AI accelerates security operations by automating the analysis of massive security telemetry volumes. Tools like Microsoft Copilot for Security can instantly summarize incidents, write KQL queries, reverse-engineer malicious scripts, and query threat intelligence, significantly reducing the time required for analysts to investigate and respond to sophisticated attacks."
+        },
+        {
+            "question": "What is the difference between Copilot for Security and GitHub Copilot?",
+            "answer": "GitHub Copilot is an AI pair programmer designed for developers, focused on writing, explaining, and refactoring code (including Infrastructure as Code) within an IDE. Microsoft Copilot for Security is an AI assistant tailored for security professionals, integrated into portals like Defender and Sentinel to aid in threat hunting, incident response, and posture management."
+        },
+        {
+            "question": "What are the security risks associated with deploying LLMs?",
+            "answer": "Deploying Large Language Models introduces unique risks, including prompt injection attacks, sensitive data exposure occurring when models memorize training data, overly permissive API access leading to data exfiltration, and model denial of service. Robust guardrails, content filtering, and strict IAM boundaries around the model endpoints are critical defenses."
+        },
+        {
+            "question": "How can developers securely use AI coding assistants?",
+            "answer": "Developers should treat AI-generated code as untrusted input requiring the same rigorous review and testing as human-written code. Organizations should implement policies prohibiting the pasting of proprietary secrets into public models, use enterprise-licensed AI tools that do not train on customer telemetry, and integrate automated SAST scanning in their CI/CD pipelines."
+        },
+        {
+            "question": "What does Agentic AI mean for the attack surface?",
+            "answer": "Agentic AI refers to autonomous agents capable of independent reasoning, continuous action, and API interaction to achieve goals. For the attack surface, this means threat actors can deploy autonomous agents to discover vulnerabilities and chain exploits at machine speed. Conversely, defenders must utilize defensive AI agents for continuous, automated remediation to keep pace."
+        }
+    ]
+}

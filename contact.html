@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | My Tech Blog</title>
+
+    <link rel="canonical" href="https://yourdomain.com/contact.html">
+
+    <!-- Open Graph & Twitter -->
+    <meta property="og:title" content="Contact | My Tech Blog">
+    <meta property="og:url" content="https://yourdomain.com/contact.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script src="/assets/js/theme.js"></script>
+
+    <style>
+        /* critical.css partial inline */
+        :root {
+            --accent-cyan: #00f2fe;
+            --accent-purple: #4facfe;
+            --bg-dark: #0a0a0a;
+            --bg-darker: #050505;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --radius-md: 0.5rem;
+            --radius-full: 9999px;
+            --shadow-glow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: var(--font-sans);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 72px;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-2) var(--space-6);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #fff;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: var(--space-6);
+                align-items: center;
+            }
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-darker);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 500ms ease;
+        }
+
+        #page-loader.fading {
+            opacity: 0;
+        }
+
+        .loader-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Contact Form Specific Styles */
+        .form-input-container {
+            margin-bottom: var(--space-4);
+            position: relative;
+        }
+
+        .form-container {
+            background: var(--bg-darker);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: var(--space-6);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .error-msg {
+            color: #ef4444;
+            font-size: 0.85rem;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .is-invalid .form-input {
+            border-color: #ef4444;
+        }
+
+        .is-invalid .error-msg {
+            display: block;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/css/animations.css" media="print" onload="this.media='all'">
+</head>
+
+<body>
+    <div id="page-loader">
+        <div class="loader-logo">My Tech Blog</div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">My Tech Blog</a>
+            <div class="nav-links">
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/categories/azure.html" class="nav-link">Azure</a>
+            </div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 100px; flex: 1; display: flex; align-items: center;">
+        <section class="container animate-on-scroll">
+            <div class="form-container">
+                <h1 style="text-align: center; margin-bottom: var(--space-2);">Get in Touch</h1>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: var(--space-6);">Have a security
+                    inquiry or consulting request? Send me a message.</p>
+
+                <form id="contact-form" novalidate>
+                    <div class="form-input-container">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" class="form-input" required minlength="2">
+                        <div class="error-msg">Please enter a valid name.</div>
+                    </div>
+
+                    <div class="form-input-container">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-input" required>
+                        <div class="error-msg">Please enter a valid email address.</div>
+                    </div>
+
+                    <div class="form-input-container">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" class="form-input" rows="5" required minlength="10"></textarea>
+                        <div class="error-msg">Message must be at least 10 characters long.</div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: var(--space-6);">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </div>
+                </form>
+
+                <div id="form-success"
+                    style="display: none; text-align: center; color: #10b981; margin-top: var(--space-6);">
+                    <div style="font-size: 3rem; margin-bottom: var(--space-2);">✓</div>
+                    <h3>Message Sent!</h3>
+                    <p style="color: var(--text-muted);">Thank you for reaching out. I'll get back to you shortly.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-gradient-bar"></div>
+        <div class="container text-center" style="padding: var(--space-4) 0; color: var(--text-muted);">
+            <p>&copy; 2026 My Tech Blog.</p>
+        </div>
+    </footer>
+
+    <script type="module" defer>
+        import { initAnimations } from '/assets/js/animations.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initAnimations();
+
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                // Validate Name
+                const nameContainer = document.getElementById('name').parentElement;
+                if (document.getElementById('name').value.trim().length < 2) {
+                    nameContainer.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    nameContainer.classList.remove('is-invalid');
+                }
+
+                // Validate Email
+                const emailContainer = document.getElementById('email').parentElement;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(document.getElementById('email').value.trim())) {
+                    emailContainer.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    emailContainer.classList.remove('is-invalid');
+                }
+
+                // Validate Message
+                const msgContainer = document.getElementById('message').parentElement;
+                if (document.getElementById('message').value.trim().length < 10) {
+                    msgContainer.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    msgContainer.classList.remove('is-invalid');
+                }
+
+                if (isValid) {
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
+                    // In a real app, send fetch request here
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
